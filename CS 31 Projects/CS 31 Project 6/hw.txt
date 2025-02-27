@@ -1,0 +1,149 @@
+﻿1. A.
+int main()
+    {
+        int arr[3] = { 5, 10, 15 };
+        int* ptr = arr;
+        *ptr = 30;          // set arr[0] to 30
+        ptr += 1;
+        *ptr = 20;      // set arr[1] to 20
+        ptr += 1;
+        *ptr = 10;       // set arr[2] to 10
+        while (ptr >= arr)
+        {
+            cout << *ptr << endl;    // print values
+            ptr--;
+        }
+    }
+
+
+
+
+B. 
+The function will not execute to find the maximum number in the function with the original code because the code tries to assign the beginning of the array and the index of the array of the maximum value to the pointer. However, the change in pointer is only passed in this function and would not cause any change in pointer in the parameter.
+void findMax(int arr[], int n, int* pToMax)
+    {
+        if (n <= 0) 
+            return;      // no items, no maximum!
+    
+        *pToMax = arr[0];
+
+
+        for (int i = 1; i < n; i++)
+        {
+            if (arr[i] > *pToMax)
+                 *pToMax = arr[i];
+        }
+    }
+
+
+
+
+
+
+C. 
+The function may not work because ptr is not defined when called in the main function. The pointer does not know what value it is pointing at, which could cause different values to be outputted when computed in the code. 
+int main()
+    {
+        int cubed;
+        int* ptr = &cubed;
+        computeCube(5, ptr);
+        cout << "Five cubed is " << *ptr << endl;
+    }
+
+
+D. 
+The problem with the function is when the function tries to compare the characters with the zero bytes or another character, it is actually comparing it with each pointer. Therefore, the fix would be to dereference the pointer to compare the characters each pointer is pointing at.
+bool strequal(const char str1[], const char str2[])
+    {
+    while (*str1 != '\0'  &&  *str2 != '\0')  // zero bytes at ends
+        {
+            if (*str1 != *str2)  // compare corresponding characters
+                return false;
+            str1++;            // advance to the next character
+            str2++;
+        }
+        return *str1 == *str2;   // both ended at same time?
+    }
+
+
+
+
+E. 
+The code is calling an array called “anArray” in getPtrToArray function. However, the pointer loses the value that the pointer should be pointing at once the function is called because the array is a local array that only exists in the function and the pointer has incorrect values once it is dereferenced. 
+
+
+2. 
+int main()
+{
+    double* cat;
+    double mouse[5];
+    cat = &mouse[4];
+    *cat = 25;
+    *(mouse + 3) = 17;
+    cat -= 3;
+    cat[2] = 42;
+    cat[0] = 54;
+    bool d = (cat == &mouse[0]);
+    bool b = (*cat == *(cat + 1));
+}
+3.
+1. double mean(const double* scores, int numScores)
+    {
+        const double* ptr = scores;
+        double tot = 0;
+        for (int i = 0; i < numScores; i++)
+        {
+            tot += *(ptr + i);
+        }
+        return tot/numScores;
+    }
+
+
+2. const char* findTheChar(char* str, char chr)
+    {
+    for (int k = 0; *(str + k) != 0; k++){
+        if (*str == chr){
+            return str;
+        }
+        str++;
+    }
+        return nullptr;
+    }
+3. const char* findTheChar(char* str, char chr)
+    {
+        while (*str != '\0'){
+            if (*str == chr){
+                return str;
+            }
+            str++;
+        }
+        return nullptr;
+    }
+
+
+4.  
+The program will print out: 
+3
+4
+79
+-1
+9
+22
+19
+
+
+The program outputs 3 first because the line “cout << &array[5] - ptr << endl;” calls to output the address of the fifth element subtracted by the current pointer value. Then the loop is called to output the values in the array after the code has been executed. 4 is printed first because the line “swap2(array, &array[2]);” brings 4, which is the third element in the array and swaps with the first element in the array, which is -1, called by “array”. The function swap2 works outside the function unlike swap1 because the values that the pointers are pointing are swapped. Then the second element, 79 is printed because the line “*(array+1) = 79;” says to make the value at the second element in the array equal to 79. Therefore, 3 becomes 79 in the array. Then -1 is printed because it swapped indexes earlier with swap2, which made -1 the third element. In addition, -1 replaced 5 in the earlier code because the line “int* ptr = maxwell(array, &array[2]);” returns the ptr to point at 5 because 5 is greater than 4. In addition, in the following code, the pointer double is assigned the value -1, which changes the value of 5 to -1. Then 9 is printed because the pointer is moved 2 values forward, which will be at the third element. Then the next code writes, “ptr[1] = 9;”, which asks the the pointer value in the pointer one ahead to be equal to 9. Therefore, the fourth element becomes 9. Then 22 and 19 are printed because they are part of the array and had no change throughout the code. 
+
+
+5. 
+void removeS(char* text) {
+    char* ptr = text;
+    while (*text != '\0') {
+        if (*text != 'S' && *text != 's') {
+            *ptr = *text;
+            ptr++;
+        }
+        text++;
+    }
+    *ptr = '\0';
+}

@@ -1,0 +1,204 @@
+﻿1. An obstacle I had to overcome while working on project 3 was to plot characters on the grid when either starting values are negative. Without setting a code to ignore negative values, the program will terminate automatically because the negative values would not be part of the inputted grid values. I had trouble coming up with a solution so the error message would not pop up, but also plotting the points after r and c were not negative. 
+2. function plotHoriztontalLine(r, c, distance, ch)
+        Distance is 0 or positive
+                Repeat:
+                Check out of bounds
+Add distance
+                Plot character
+                Break when i is distance
+
+
+        Distance is negative
+                Repeat:
+                Check out of bounds
+                Add distance
+                Plot Character
+                Break when i is distance
+
+
+function plotVerticalLine(r, c, distance, ch)
+        Distance is 0 or positive
+                Repeat:
+                Check out of bounds
+                Add distance
+                Plot character
+                Break when i is distance
+        Distance is negative
+                Repeat:
+                Check out of bounds
+                Add distance
+                Plot Character
+                Break when i is distance
+                
+Setting unchanging values to variable 
+
+function plotLine(r, c, distance, dir, plotChar, fgbg):
+        If horizontal
+                plotHorizontalLine
+        If mode is background
+                Get character of c and r
+                Plot if Char == “ “
+        If vertical
+                plotVerticalLine
+        If mode is background
+                Get character of c and r
+                Plot if Char == “ “
+        If parameters is not valid
+                Do not run
+
+
+function performCommands(commandString, plotChar, mode, badPos):
+        Define variable with starting condition
+        Repeat while the string index is less than command size: 
+        Command becomes first letter
+        Add 1 to index
+        If next line is not specified letter
+                Note the index
+                Return 1 for syntax error
+        If next line is not plottable or valid mode
+                Note the index
+                Return 2 for invalid plot character or mode
+        If command starts with number
+                Note the index
+                Return 1 for syntax error
+        If command is ‘H’ or ‘h’
+                Set distance to 0
+                If ‘-’ follows
+                        Check up to 2 digits following
+                If is number
+                        Check the next digit
+                Add the digits following to distance
+                Check if distance stays inside the grid
+                        If true add distance to x value
+                        If false return 3 for out of bounds
+                If it does not align with any of these, return 1
+        If command is ‘V’ or ‘v’
+                Set distance to 0
+                If ‘-’ follows
+                        Check up to 2 digits following
+                If is number
+                        Check the next digit
+                Add the digits following to distance
+                Check if distance stays inside the grid
+                        If true add distance to y value
+                        If false return 3 for out of bounds
+                If it does not align with any of these, return 1
+        If command is ‘F’ or ‘f’
+                Set the mode to foreground
+                Take the next character as the new character to plot
+                Add 1 to index
+        If command is ‘B’ or ‘b’
+                Check if next character is valid and if the mode is background
+                If false return 2 for invalid character
+                If true take character as the new character to plot
+                Add 1 to index
+                If it does not match return 1 for syntax error
+        If command is ‘C’ or ‘c’
+                Clear the grid
+                Set current position, character, and mode to default
+                If it does not match return 1 for syntax error
+3.    1. H2
+To test for the horizontal command with one digit.
+It worked as expected.
+   2. h2
+To test for the horizontal command, but for when the command was initialized with lowercase. 
+It worked as expected.
+   3. H10
+To test for the horizontal command with two digits.
+It worked as expected.
+   4. H20V2H-2
+To test for the horizontal command with a negative one-digit value.
+It worked as expected.
+   5. H20V2H-10
+To test for the horizontal command with a negative two-digit value.
+It worked as expected.
+   6. V2
+To test for the vertical command. 
+It worked as expected.
+   7. v2
+To test for the vertical command, but for when the command was initialized with lowercase. 
+It worked as expected.
+   8. V10
+To test for vertical command with two digits.
+It worked as expected.
+   9. V20H2V-2
+To test for the vertical command with a negative one-digit value.
+It worked as expected.
+   10. V20H2V-10
+To test for the vertical command with a negative two-digit value.
+It worked as expected.
+   11. H2V2
+To test if the command will compile when both vertical and horizontal command is inputted. 
+It worked as expected.
+   12. H2F2V2
+To test if the new character would be plotted after being assigned the foreground.
+It worked as expected.
+   13. H2B2H2
+To test if the new character would be plotted after being assigned the background.
+It worked as expected.
+   14. H2F2V-2
+To test for the foreground functionality the new letter “2” would write over the “*”.
+It worked as expected.
+   15. H2B2H-2
+To test for the background functionality “2” should not be printed because the “*” was printed in the foreground first so the new character “2” would be behind it.
+It worked as expected.
+   16. C
+To test for the clear command functionality of clearing everything from the previous commands.
+It worked as expected.
+   17. H2V2C
+To test if the clear command will run after a horizontal and vertical command.
+It worked as expected. 
+   18. H
+To test for syntax error since the horizontal command looks up to 2 digits positive or negative value and will be an error if nothing is specified after.
+It worked as expected.
+   19. H+1
+To test for syntax error since horizontal command only looks up to 2 digit positive or negative value and not a + sign. 
+It worked as expected.
+   20. V
+To test for syntax error since the vertical command looks up to 2 digits positive or negative value and will be an error if nothing is specified after.
+It worked as expected.
+   21. V+1
+To test for syntax error since vertical command only looks up to 2 digit positive or negative value and not a + sign. 
+It worked as expected.
+   22. C2
+To test for syntax error because a digit can not follow after C.
+It worked as expected.
+   23. Q4H4
+To test for syntax error because Q and other letters than the horizontal, vertical, foreground, background, and clear command letters can not start a command. 
+It worked as expected.
+   24. H2 V4
+To test for syntax error because space can not start a command. 
+It worked as expected.
+   25. V100
+To test for syntax error when the number following is a positive 3-digit number since vertical command only catches up to 3 digits.
+It worked as expected.
+   26. H100
+To test for syntax error when the number following is a positive 3-digit number since horizontal command only catches up to 3 digits.
+It worked as expected.
+   27. V-100
+To test for syntax error when the number following is a negative 3-digit number since vertical command only catches up to 3 digits.
+It worked as expected.
+   28. H-100
+To test for syntax error when the number following is a negative 3-digit number since horizontal command only catches up to 3 digits.
+It worked as expected.
+   29. FV3
+To check that the syntax error would pop up for 3 starting a command. 
+It worked as expected.
+   30. H-2H+2
+To check that syntax errors would pop up first instead of prioritizing the error of plotting out side the graph.
+It worked as expected.
+   31. V-1
+To check that the function catches characters plotting outside of the grid.
+It worked as expected.
+   32. 5h5
+To check that the code will cout an error code for starting the command with a number.
+It worked as expected.
+   33. h-
+To check if it outputs an error code for no values following the negative sign. 
+It worked as expected.
+   34. h0
+To check if a character is plotted at the current position if the distance is 0 for horizontal command. 
+It worked as expected.
+   35. v0 
+To check if a character is plotted at the current position if the distance is 0 for horizontal command. 
+It worked as expected.

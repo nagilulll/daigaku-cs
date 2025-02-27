@@ -1,0 +1,45 @@
+﻿1. endlendl
+grendel
+2. It prints “#” starting from 1 and until the line number inputted by the user and has the same number of “#” as the line number. 
+3. #include <iostream>
+        using namespace std;
+
+
+        int main()
+        {
+            int side;
+
+
+            cout << "Enter a number: ";
+            cin >> side;
+
+
+            for (int i = 0; i < side; i++)
+            {
+                int j = 1
+while (j >= 0)
+                {
+cout << "#";
+                        j -= 1;
+                }
+                cout << "\n";
+            }
+        }
+4. switch (codeSection)
+{
+case 281:
+cout << "bigmay";
+break;
+case 321:
+cout << "selling illegal tickets";
+break;
+case 322:
+case 383:
+cout << "selling rancid butter";
+break;
+case 598:
+cout << "injurying a bird in public cemetery";
+break;
+default:
+cout << "some other crime";
+}

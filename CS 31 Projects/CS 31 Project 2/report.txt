@@ -1,0 +1,20 @@
+﻿1. An obstacle I had to overcome while working on project 2 was writing correct boolean expressions in the if statements. For example, I kept comparing the overstated amount with 90 to calculate for fines that exceeded 150, when I should be comparing the overstated amount with 150. This led to small calculation errors, which took me a while to spot when troubleshooting. 
+2.    1. Empty string for identification (“”, 150, “scotland”)
+To test the error message, “You must enter a property identification.” is outputted when an empty string is inputted for identification.
+   2. Identification and location provided, but overstated amount is not positive (“Lodge Miami”, -150, “scotland”)
+To test the error message, “The overstated amount must be positive.” is outputted when the overstated amount is negative.
+   3. Empty string for location (“Lodge Miami”, 150, “”)
+To test the error message, “You must enter a location.” is outputted when an empty string is inputted for location.
+   4. Overstated amount is less than $60 (“Lodge Miami”, 45, “scotland”)
+To test if fines for overstated amounts under the first $60 million is calculated correctly
+   5. Overstated amount is greater than or equal to $60 (“Lonely Lodge”, 72, “scotland”)
+To test if fines for overstated amounts above or equal to $60 million is calculated correctly
+   6. Overstated amount is less than or equal to 150 (“Lonely Lodge”, 120, “scotland”)
+To test if fines for overstated amounts less than or equal to $90 million is calculated correctly
+   7. Overstated amount is greater than or equal to $60 and location is “florida” or “new york” (“Lodge Miami”, 110, “florida”)
+To test if fines for overstated amounts less than or equal to $150 million is multiplied by 18% (florida and new york values) correctly
+   8. Overstated amount is greater than or equal to $60 and less than or equal to 150 and location is not “florida” or “new york” (“Lonely Lodge
+   9.  ”, 110, “scotland”)
+To test if fines for overstated amounts less than or equal to $150 million is calculated correctly without processing the 18%
+   10. Overstated amount is greater than $150 (“Lonely Lodgei”, 192, “scotland”)
+To test if fines for overstated amounts greater than $90 million is calculated correctly

@@ -1,0 +1,133 @@
+﻿1. An obstacle I overcame for project 5 was to create a program that considers the words in the text file without using strings. In the previous programs, I was used to getting the words from lines such as “cin” and “getline” with the whole string coming in. However, with this code, I had to process each character in the words and append them to the word count to output the correct amount of words per line. 
+2. function customMin(int a, int b):
+Compare two integers take minimum
+function render(lintLength, inf, outf):
+        Check if linelength is negative
+                Return 2 if true
+        Define word array
+        Bool for new paragraph
+        Bool for first word in line
+        Bool large word portion
+        Create amount of space left per line
+        Bool for paragraph breaks 
+        
+        While characters are being added to word array
+                If the word combined is “@p@”
+                If its not a new paragraph and no paragraphs occured
+                        Create two new lines
+                Make the new paragraph bool true
+                Make the first word bool true
+                Reset the character limit
+Set paragraph break to true 
+                If its not “@p@”
+                Put pointer at word
+                When Pointer is not null
+                Assign end to pointer
+                Find the end of the word
+                Assign the wordLength the amount of characters in the word
+If the word is not the first word and has more character limit and is not last word
+                        Add a space
+                        Subtract 1 from remaining character count
+                If there is not line limit left
+                        Create new line
+                        Reset character limit
+                If its not first word and not the end
+                        Create new line
+                        Reset Character count
+                If word is longer than linelength
+                        Until word length is less than or equal to 0
+                                Gets amount of words fit in line
+                                Output the word
+                                Assign pointer to where the word is cut off
+                        If word length is more than 0
+                                Create new line
+                                Reset character limit
+                        Make largeWord bool true
+                Check if character limit is more than the word length
+                        Write the word on the line
+                Check if the word is under linelength and exceeds character limit
+                        Create new line
+                        
+                Get last character from end pointer minus 1
+                Check if its a specified punctuation
+                        If character limit is more than 0
+                                Add space
+                        If character limit is less than 0
+                                Create new line
+                                Reset character limit
+                Put first word bool to true
+                Assign ptr pointer to end
+                If pointer is equal to -
+                        If there is space to character limit
+                                Output -
+                                Subtract one from character limit
+                        If there is not space to character limit
+                                Create new line
+                                Reset character limit
+                        Increment ponter
+                Put new paragraph bool to false
+        Output a new line
+        If the largeWord bool is true
+                Return 1
+                If the largeWord bool is false
+                        Return 0
+3.         
+   1. render(10, infile, cout);
+file: “It always does seem to me”
+Should return “It always”, “does seem”, and “to me” to fit in the character count of 10 characters per line. 
+   2. render(-2, infile, cout);
+Should return 2 for the line length being a negative value. 
+   3. render(5, infile, cout);
+file: “It always does seem to me”
+Should return 1 for the word “always” being longer than the line.
+   4. render(20, infile, cout);
+“After @P@ like”
+Expected to have a paragraph break after “After” because of the “@p@” which indicates a paragraph break. 
+   5. render(20, infile, cout);
+“”
+Expected to have just output the blank input without changing anything. 
+   6. render(20, infile, cout);
+“After @P@ like @p@ party”
+Expected to have a paragraph break after “After” and “like” because of the “@p@” which indicates a paragraph break and testing multiple paragraph breaks. 
+   7. render(20, infile, cout);
+“After like party @p@”
+Expected to have not change anything because the paragraph break is at the end so it would not start another paragraph. 
+   8. render(8, infile, cout);
+"  This is a test “ 
+Expected to output a new line after is and start with “This” because any new line should not start with a space character.
+   9. render(7, infile, cout);
+"This\n\t\tis a\ntest\n”
+Expected to output a new line after is and delete the the indents between “This” and “is” and replace it with only one white space.
+   10. render(6, infile, cout);
+"Testing it”
+Expected to output a new line after n because “Testing” is a word larger than the line length and return the value of 1 for being greater than the line length.
+   11. render(7, infile, cout);
+"Hello bye“
+Expected to output a new line after “Hello” because hello is 5 characters and to check that no spaces are printed after the laast word of the line. 
+   12. render(5, infile, cout);
+"Test: Bye”
+Expected to output the one space character after the colon and return a line starting with Bye because a line can not start with a white space. 
+   13. render(10, infile, cout);
+"Hello Bye Hello Bye”
+Expected to output a new line after the first Bye without producing any white spaces because the last word in the line should not be followed by a white space.
+   14. render(3, infile, cout);
+"Testing it”
+Expected to output a new line after each 3 characters and return the value of 1 because the words are larger than the line length.
+   15. render(10, infile, cout);
+"-Test”
+Expected to output two words, “-” and “Test” separately, as hyphens are only counted within a word if it is placed after it and not before. 
+   16. render(20, infile, cout);
+"Test- case”
+Expected to output “Test-” and “case” with a space in between because hyphen would be part of the word, “Test” in this test case. 
+   17. render(20, infile, cout);
+"Test--case”
+Testing consecutive hyphens which would create three word portions, “Test-” “-” and “case”, which the program does. 
+   18. render(6, infile, cout);
+“Testing this file input”
+Testing if the program runs with the word longer than the line length and correctly starts a line for other lines.
+   19. render(10, infile, cout);
+“Testing banjo@P@”
+Testing if the program considers “@p@” as a word or paragraph break and it works correctly as it is considered a word with “banjo”.
+   20. render(10, infile, cout);
+“Testing @P@ @P@ Case”
+Testing if the program handles two consecutive @p@ as only one paragraph, which the program does.

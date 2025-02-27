@@ -1,0 +1,80 @@
+﻿1. An obstacle I had to overcome during project 4 was to keep track of the elements at each index value when I had to swap values. For example, the flip function required me to keep track of the index values of “i” and “j”, while I swapped the elements that are stored at each index value. A way I overcame this was to actually write down the array with the elements at their updated index value to check how many more times I had to increment the loop to finish the whole array. 
+2.    1. string stuff[6] = { "bayi", "jon", "pls", "", "see", "key" };
+assert(reduplicate(stuff, 6) == 6 && c[0] == "bayibayi" && c[3] == "  ");
+To test if the reduplicate function can be called correctly. Also to check for the correct return value as well as to see if the elements at specified index values are repeated.
+It worked as expected.
+   2. string stuff[6] = { "bayi", "jon", "pls", "", "see", "key" };
+assert(reduplicate(stuff, -1) == 6 && c[0] == "bayibayi" && c[3] == "  ");
+To test if the reduplicate function can be called correctly. Also to check for the correct return value of -1 for the bad argument that is passed since -1 is negative array size.
+It worked as expected.
+   3. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };        assert(locate(h, 7, "chris") == 5);
+To test if the locate function can be called correctly. Also to check for the correct return value of 5 since “chris” is found at the index value of 5. 
+   4. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };        assert(locate(h, 7, "zon") == -1);
+To test if the locate function can be called correctly. Also to check for the correct return value of -1 because the target string has no match. 
+   5. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };        assert(locate(h, -2, "chris") == -1);
+To test if the locate function can be called correctly. Also to check for the correct return value of -1 because the array size is a negative.
+   6. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald", “chris”};        assert(locate(h, 8, "chris") == 5);
+To test if the locate function can be called correctly. Also to check for the correct return value of 5 because “chris” appears at index value 7 again, but it should return the index value that it has first spotted the target string at. 
+   7. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };
+assert(locationOfMax(h, 7) == 3);
+To test if the locate function can be called correctly. Also to check for the correct return value of 3 since “vivek” is the largest string that could be found in the array and is found at the index value of 3. 
+   8. string h[7] = { "nikki", "ron", "asa", "vivek", "", "vivek", "donald" };
+assert(locationOfMax(h, 7) == 3);
+To test if the location of max function can be called correctly. Also to check for the correct return value of 3 because “vivek” appears at index value 5 again, but according to the spec, the spec should return the smallest index value of the largest string. 
+   9. string h[7] = { "nikki", "ron", "asa", "vivek", "", "vivek", "donald" };
+assert(locationOfMax(h, -1) == -1);
+To test if the location of max function can be called correctly. Also to check for the correct return value of -1 because the array size is a negative.
+   10. string g[4] = { "nikki", "ron", "chris", "tim" };
+assert(circleLeft(g, 4, 1) == 1 && g[1] == "chris" && g[3] == "ron");
+To test if the circle left function can be called correctly. Also to check for the correct return value as well as to see if the elements at specified index values are correctly shifted.
+   11. string g[4] = { "nikki", "ron", "chris", "tim" };
+assert(circleLeft(g, 4, -1) == -1 && g[1] == "ron" && g[3] == "tim");
+To test if the circle left function can be called correctly. Also to check for the correct return value of -1 because “pos” is a negative which would be a bad argument and call for a negative array value. 
+   12. string d[5] = { "ron", "ron", "ron", "chris", "chris" };
+assert(enumerateRuns(d, 5) == 2);
+To test if the enumerateRuns function can be called correctly. Also to check for the correct return value of 2 because the element, “ron” is consecutive and so is “chris”. Therefore, there are 2 runs, which results in the function returning 2.
+   13. string d[5] = { "ron", "ron", "ron", "chris", "chris" };
+assert(enumerateRuns(d, -2) == -1);
+To test if the enumerateRuns function can be called correctly. Also to check for the correct return value of -1 because the argument calls for a negative array value which would be a bad argument.
+   14. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };
+string g[4] = { "nikki", "ron", "chris", "tim" };
+assert(locateDifference(h, 4, g, 4) == 2);
+To test if the locateDifference function can be called correctly. Also to check for the correct return value of 2 because between the two arrays, they have the same string up until index value of 2, where h[2] is “asa” and g[2] is “chris”.
+   15. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };
+string g[4] = { "nikki", "ron", "chris", "tim" };
+assert(locateDifference(h, 2, g, 1) == 1);
+To test if the locateDifference function can be called correctly. Also to check for the correct return value of 1 because the two arrays are equal until the index value g is called up to so it returns 1 as in this case n2 was less than n1.
+   16. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };
+string g[4] = { "nikki", "ron", "chris", "tim" };
+assert(locateDifference(h, -2, g, -5) == -1);
+To test if the locateDifference function can be called correctly. Also to check for the correct return value of -1 because the argument calls for negative array values.
+   17. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };
+string e[4] = { "asa", "vivek", "", "chris" };
+assert(subsequence(h, 7, e, 4) == 2);
+To test if the subsequence function can be called correctly. Also to check for the correct return value of 2 because the sequence of the elements in array “e” is in the array “h” from the index value 2. 
+   18. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };
+string e[4] = { "jack", "lowe", "sean", "paul" };
+assert(subsequence(h, 7, e, 4) == -1);
+To test if the subsequence function can be called correctly. Also to check for the correct return value of -1 because the sequence of “e” is never in “h”. 
+   19. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };
+string e[4] = { "jack", "lowe", "sean", "paul" };
+assert(subsequence(h, 7, e, -4) == -1);
+To test if the subsequence function can be called correctly. Also to check for the correct return value of -1 because the argument calls for negative array values, which will be a bad argument. 
+   20. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };
+string f[3] = { "vivek", "asa", "tim" };
+assert(locateAny(h, 7, f, 3) == 2);
+To test if the locateAny function can be called correctly. Also to check for the correct return value of 2 because the first element found in the array “h” that is also in array “f” is “asa”, which is found at index value of 2.
+   21. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };
+string f[3] = { "link", "aman", "pep" };
+assert(locateAny(h, 7, f, 3) == -1);
+To test if the locateAny function can be called correctly. Also to check for the correct return value of -1 because the elements in the array “h” are never found in the array “f”.
+   22. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };
+string f[3] = { "link", "aman", "pep" };
+assert(locateAny(h, 7, f, -3) == -1);
+To test if the locateAny function can be called correctly. Also to check for the correct return value of -1 because the argument calls for a negative array value which would be a bad argument.
+   23. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };
+assert(divide(h, 7, "donald") == 3);
+To test if the divide function can be called correctly. Also to check for the correct return value of 3 because the elements, “asa”, “chris”, and “”, would be placed in front of the divider and the index value after that would be returned, which would be 3.
+   24. string h[7] = { "nikki", "ron", "asa", "vivek", "", "chris", "donald" };
+assert(divide(h, -1, "donald") == -1);
+To test if the divide function can be called correctly. Also to check for the correct return value of -1 because the argument calls for negative array values which would be a bad argument.

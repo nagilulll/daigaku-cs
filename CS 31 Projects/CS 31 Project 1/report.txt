@@ -1,0 +1,8 @@
+﻿* I inputted 10 to the original question of the number of people surveyed and 5 for the number of people that preferred each rice type. The program outputs that “More people prefer jasmine rice over basmati rice”, which is not the case because the votes are equal between the type of rice.
+* A logic error I introduced was to swap the equation for each variable, pctJasmine and pctBasmati, which would swap the percentages of the votes and output the opposite data for the survey. 
+* One of the compile errors I included was the removal of the semicolons from each line, which would be acknowledged as a syntax error. 
+* Another compile error I included was removing the declaration of the integers, which are lines
+int numberSurveyed;
+int preferBasmati;
+int preferJasmine;
+Which would not identify what each identifier represents.
