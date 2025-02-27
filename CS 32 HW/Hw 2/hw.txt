@@ -1,0 +1,31 @@
+﻿2. 
+The first 12 coordinates popped off the stack from the stack algorithm are:
+(6,5)
+(6,4)
+(6,3)
+(7,4)
+(8,4)
+(8,3)
+(8,2)
+(8,1)
+(7,1)
+(6,6)
+(5,6)
+(4,6)
+
+
+4. 
+The first 12 coordinates popped off the queue from the queue algorithm are:
+(6,5)
+(5,5)
+(6,4)
+(6,6)
+(4,5)
+(6,3)
+(7,4)
+(3,5)
+(4,4)
+(8,4)
+(2,5)
+(4,3)
+The two algorithms are different as the stack algorithm prioritizes moving down the spaces in one direction until no spaces are left. The algorithm works this way as the stack always adds the values of the boxes to search on top when a new space is found and other spaces available are ignored when the stack goes one direction. The queue algorithm checks every surrounding space first and ends one there is no space to move towards. The queue algorithm works this way because the new spaces found are added to the back of the search and the spaces already rendered are searched first.

@@ -1,0 +1,124 @@
+﻿1. 
+A.
+50
+  20
+    10
+      xx
+      15
+    40
+      30
+        25
+        38
+      xx
+  60
+    xx
+    70
+      66
+      80
+        75
+        xx 
+
+
+B.
+In order: 
+10, 15, 20, 25, 30, 38, 40, 50, 60, 66, 70, 75, 80
+Pre order: 
+50, 20, 10, 15, 40, 30, 25, 38, 60, 70, 66, 80, 75
+Post order: 
+15, 10, 25, 38, 30, 40, 20, 66, 75, 80, 70, 60, 50
+
+
+C. 
+Delete 30: 
+50
+  20
+    10
+      xx
+      15
+    40
+      38
+        25
+        xx
+      xx
+  60
+    xx
+    70
+      66
+      80
+        75
+        xx 
+Delete 20:
+50
+  15
+    10
+    40
+      38
+        25
+        xx
+      xx
+  60
+    xx
+    70
+      66
+      80
+        75
+        xx 
+ 
+
+
+2.
+A.
+class tree 
+{
+        Node* parent;
+        Node* left;
+        Node* right;
+        int value;
+};
+
+
+B. 
+Check if the tree has values
+        If true, add new node with desired value to parent
+Check if the parent and the current node are equal
+        If true, return
+Check if the parent node value is greater than the current node value
+        If true, check if the left node is empty
+                If true, add new node with value to the the left
+                If false, set the parent node as the left node that the current parent node points to
+Check if the parent node value is less than the current node value
+        If true, check if the right node is empty
+                If true, add new node with value to the right
+                If false, set the parent node as the right node that the current parent node points to
+
+
+3.
+A. 
+7
+  6
+    3
+    5
+  4
+    1
+
+
+
+
+B. 
+array: [7, 6, 4, 3, 5, 1]
+
+
+C.
+array: [6, 5, 4, 3, 1]
+
+
+4.
+1. O(C + S) 
+2. O(logC + S)
+3. O(log C + logS)
+4. O(logS)
+5. O(1)
+6. O(logC + S)
+7. O(S * logS)
+8. O(C * logS)
+*
