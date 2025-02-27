@@ -1,0 +1,171 @@
+﻿1. My doubly linked list consists of next and previous pointers for every node. The list has head and tail values to keep track of the beginning and end of the list to implement any new node easily. The nodes each hold two values, the key and the value that corresponds to each other.
+2.     
+Map::Map(const Map& other)
+        Set the head and tail of the original map to empty
+        Declare temp pointer pointing at head
+        Traverse to the end of list
+        Copy the values from the nodes in other map
+        Move on until the last node
+
+
+Map& operator=(const Map& rhs);
+        Check if the original map and other map is the same
+        Create temp map class with other map data
+        Use swap function to bring the other map data in temp map class into original map
+        Return the original map with other map data
+    
+~Map();
+Declare temp pointer to point at head
+Traverse until the end of list
+Declare new temp pointer to point at next node
+Delete the original temp pointer at the current node
+Set the original pointer to the temp pointer pointing at the next node
+Start head and tail from the beginning
+Reset the list size
+ 
+    
+bool insert(const KeyType& key, const ValueType& value);
+Look for parameter key in the list
+Return false if found
+Create new temp pointer pointing at newly created Node with parameter values
+Add the node directly if list is empty
+Link new node after the tail and set the next node of new node to nothing
+Adjust the node as new tail
+Increase the size of list
+Return the value true
+
+
+bool update(const KeyType& key, const ValueType& value);
+        Declare new temp pointer pointing at head
+        Traverse until the end of list
+        Look for key pointed by pointer in list
+        Set the value from the node to the parameter value if found and return true
+        Move to next node if not found
+        Return false if key not found
+    
+bool insertOrUpdate(const KeyType& key, const ValueType& value);
+        Declare new temp pointer pointing at head
+        Traverse until the end of list
+        Look for key pointed by pointer in list
+        Set the value from the node to the parameter value if found and return true
+        Move to next node if not found
+        Return false if key not found
+        If key does not exist, insert the paired value as new node
+        
+    
+bool erase(const KeyType& key);
+Use contain function to check for key in the nodes
+Return false if key does not exist in the nodes
+Introduce temp pointer to traverse down through the nodes
+Loop until the next node is the target key
+Target found 
+Set the address of the node to killMe
+Set the node one before to next
+Delete the killMe to erase targeted key
+    
+bool contains(const KeyType& key) const;
+Introduce temp pointer to the head of list
+Start loop until the end of list
+Check if each key value in the node is equal to parameter
+Return true if yes, keep traversing if not
+Return false if the parameter key does not show up
+
+
+bool get(const KeyType& key, ValueType& value) const;
+        Introduce temp pointer to the head of list
+Start loop until the end of list
+Check if each key value in the node is equal to parameter
+Return true if yes and set the value in the parameter to the value in the target node
+Keep traversing if not
+Return false if the parameter key does not show up
+
+
+bool get(int i, KeyType& key, ValueType& value) const;
+        Return false for invalid “i” inputs
+        Introduce temp pointer to the head of list
+        Start loop until the end of list
+        Declare new temp pointer to compare and set it to the head
+        Declare new int variable to match i
+        Start loop to compare the new temp pointer to each item in list
+        Increment count if the new temp pointer is lower
+        Set the parameters to the key and value in node if count equals “i”
+        Move to next node if nothing hit
+        Return false if nothing happened
+
+
+void swap(Map& other);
+        Create temp pointer to point at original list head value
+        Replace original head with other head 
+        Replace other head with temp pointer with original head value
+        Create temp pointer to point at original list tail value
+        Replace original tail with other tail
+        Replace other tail with temp pointer with original tail value
+Create temp int variable to point at original list size
+        Replace original size with other size        
+Replace other size with temp size variable with original size value
+
+
+bool merge(const Map& m1, const Map& m2, Map& result);
+        Declare variable using type alias
+        Create loop to traverse through all items in first map
+        Insert all values into result map
+        Create loop to traverse through all items in second map
+        Get the value of each item with get function
+        Create new variable to compare the value from first map and second map
+        If values do not equate, return false and exit function
+        Keep adding values if the keys do not overlap or values are the same
+        Return true if all items are combined smoothly
+
+
+void reassign(const Map& m, Map& result);
+        Declare the variable using type alias
+        Start a loop from second element
+        Add each element to the result list
+        Add the first element of the original list to the result list
+
+
+3.   // default constructor
+Map m;
+  // For an empty map:
+assert(m.size() == 0);      // test size
+assert(m.empty());          // test empty
+assert(!m.erase("Ricky"));  // nothing to erase
+  // Test for insert
+assert(m.insert(“Aman”, 121));
+assert(m.insert(“Devin”, 23));
+assert(m.size() == 2);
+assert(!m.insert(“Aman”, 90); // Fail Aman already exists
+  // Test for update
+assert(m.update(“Aman”, 12));
+assert(m.update(“Devin”, 24));
+assert(!m.update(“Alejandro”, 22)); // Fail Alejandro does not exist
+  // Test for get
+ValueType test = 20;
+assert(!m.get(“Jason”, test) && test == 20);
+assert(m.get(“Aman”, test) && test == 12);
+assert(!m.update(“Alejandro”, 22)); // Fail Alejandro does not exist
+  // Test for get
+KeyType name;
+assert(m.insert(“Bruno”, 3));
+assert(m.get(2,name, test) && name == “Devin);
+  // Test for contains
+assert(m.contains(“Bruno”);
+assert(!m.contains(“Jason”);
+assert(!m.contains(“aman”);
+  // Test for swap
+Map b;
+assert(b.insert("Bruno", 3.29));
+b.swap(m);
+assert(a.size() == 1);
+  // Test for merge
+Map c;
+assert(!merge(m, b, c));
+assert(b.update(“Bruno”, 3);
+assert(merge(m, b, c));
+  // Test for reassign
+Map d;
+assert(reassign(b, d));
+ValueType check;
+assert(m.get(“Aman”, check) && check == 3);
+assert(m.get(“Bruno”, check) && check == 20);
+assert(m.get(“Jason”, check) && check == 12);

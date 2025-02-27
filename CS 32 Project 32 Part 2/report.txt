@@ -1,0 +1,6 @@
+﻿1. The co-location of two objects are detected in the doSomething functionality where the movable object moves on top of the immovable object and returns the coexisting as true. Once the interaction is initiated, the constructors are called and apply the functionality as scores and swallows of the objects. Functions, goodieBuff and setStolen are called to add the bonuses of each goodie and mark if objects are stolen by enemies.
+
+
+2. I did not implement the exit class, ThiefBot classes, including the mean bots and the factory. In addition, I was not able to implement the tick for the game, which causes the members to doSomething every tick and not just the player. Also, my scores do not work properly as obtaining a goodie or finishing the level early does not bring any additions to the score line.
+ 
+3. An alternative design that I considered for the project was to divide the process of traversing through the existing actors and keeping track of each actor's characteristics with booleans. Most of the functionality occurs in studentWorld where the list is used to sort through the actors in the game. In the classes, I kept the booleans to hold the characteristics of the classes.
